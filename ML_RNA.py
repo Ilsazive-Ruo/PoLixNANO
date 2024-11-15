@@ -9,10 +9,10 @@ from sklearn.preprocessing import StandardScaler
 
 
 structure_props = {}
-SP_data = pd.read_csv('data7/structures_prop.csv')
+SP_data = pd.read_csv('data/structures_prop.csv')
 for Num in SP_data['Num'].values:
     structure_props[Num] = SP_data.iloc[Num, 4:].values.tolist()
-ds = pd.read_csv('data7/20241027.csv')
+ds = pd.read_csv('data/20241027.csv')
 
 y = ds.iloc[:, 5].values
 y = np.array(y)
@@ -25,17 +25,15 @@ for i in ds.index:
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=3)
 model = xgb.XGBRegressor(objective='reg:squarederror', random_state=42)
-# model = RandomForestRegressor(n_estimators=500, random_state=42)
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
-# for i in range(5):
-#     print(r2_score(y_test[:, i], y_pred[:, i]))
+
 print(r2_score(y_test, y_pred))
 print(y_pred)
 
-joblib.dump(model, 'data7/DC_XGB.pkl')
+joblib.dump(model, 'data/DC_XGB.pkl')
 df_p = pd.DataFrame(y_pred, columns=['y_pred'])
 df_t = pd.DataFrame(y_test, columns=['y_true'])
 df = pd.concat([df_p, df_t], axis=1)
-df.to_csv('data7/DC_XGB_feature_fit.csv', index=False)
+df.to_csv('data/DC_XGB_feature_fit.csv', index=False)
