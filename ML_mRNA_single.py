@@ -14,15 +14,15 @@ from sklearn.metrics import r2_score
 
 experiment_name = 'Single_XGB'
 print(experiment_name)
-if os.path.exists('model8/' + experiment_name):
-    shutil.rmtree('model8/' + experiment_name)
-os.mkdir('model8/' + experiment_name)
+if os.path.exists('model/' + experiment_name):
+    shutil.rmtree('model/' + experiment_name)
+os.mkdir('model/' + experiment_name)
 
 structure_props = {}
-SP_data = pd.read_csv('data7/structures_prop.csv')
+SP_data = pd.read_csv('data/structures_prop.csv')
 for Num in SP_data['Num'].values:
     structure_props[Num] = SP_data.iloc[Num, 4:].values.tolist()
-ds = pd.read_csv('data7/20241027.csv')
+ds = pd.read_csv('data/20241027.csv')
 
 x = []
 for i in ds.index:
@@ -48,16 +48,11 @@ for feat in ds.columns[1:6]:
     score = 0
     for train_index, test_index in skf.split(y, x):
         k += 1
-        # print('k=', k)
-        # model = RandomForestRegressor(n_estimators=500, random_state=42)
-        # model = KNeighborsRegressor()
-        # model = Ridge()
         model = xgb.XGBRegressor()
-        # model = LinearRegression()
         x_train, x_test = x[train_index], x[test_index]
         y_train, y_test = y[train_index], y[test_index]
         model.fit(x_train, y_train)
-        joblib.dump(model, 'model8/' + experiment_name + '/' + experiment_name + '_' + feat + str(k) + '.pkl')
+        joblib.dump(model, 'weight/' + experiment_name + '/' + experiment_name + '_' + feat + str(k) + '.pkl')
 
         predict = model.predict(x_test)
         score += r2_score(y_test, predict)
@@ -66,11 +61,10 @@ for feat in ds.columns[1:6]:
         FI['k=' + str(k)] = list(model.feature_importances_)
         temp.append(r2_score(y_test, predict))
     r2[feat] = temp
-    print(feat + '_AVE r2:', score / 5)
 
     df2 = pd.DataFrame(FI)
-    df2.to_csv('model8/' + experiment_name + '/' + experiment_name + feat + '_FI.csv', index=False)
+    df2.to_csv('weight/' + experiment_name + '/' + experiment_name + feat + '_FI.csv', index=False)
 
 
 df = pd.DataFrame(r2)
-df.to_csv('model8/' + experiment_name + '/' + experiment_name + '_model.csv', index=False)
+df.to_csv('weight/' + experiment_name + '/' + experiment_name + '_model.csv', index=False)
