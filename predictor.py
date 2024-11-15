@@ -10,24 +10,24 @@ def simple2x(simple):
 
 
 structure_props = {}
-SP_data = pd.read_csv('data2/structures_prop.csv')
+SP_data = pd.read_csv('data/structures_prop.csv')
 for Num in SP_data['Num'].values:
     structure_props[Num] = SP_data.iloc[Num, 4:].values.tolist()
 
 
-data = pd.read_csv('data7/prediction_source.csv')
+data = pd.read_csv('data/prediction_source.csv')
 x = []
 for i in range(len(data)):
     x.append(simple2x(data.iloc[i, :].tolist()))
 
 x = np.array(x)
 
-model_size = joblib.load('data7/Size_XGB.pkl')
-model_PDI = joblib.load('data7/PDI_XGB.pkl')
-model_NDI = joblib.load('data7/NDI_MultiRF.pkl')
-model_DC = joblib.load('data7/DC_XGB.pkl')
-model_EE = joblib.load('data7/EE_MultiXGB.pkl')
-sclaer = joblib.load('data7/scaler.joblib')
+model_size = joblib.load('data/Size_XGB.pkl')
+model_PDI = joblib.load('data/PDI_XGB.pkl')
+model_NDI = joblib.load('data/NDI_MultiRF.pkl')
+model_DC = joblib.load('data/DC_XGB.pkl')
+model_EE = joblib.load('data/EE_MultiXGB.pkl')
+sclaer = joblib.load('data/scaler.joblib')
 
 Size_pred = model_size.predict(x)
 PDI_pred = model_PDI.predict(x)
@@ -38,7 +38,6 @@ EE_pred = model_EE.predict(x)[:, 3]
 x2 = []
 for i in range(Size_pred.shape[0]):
     x2.append([NDI_pred[i], Size_pred[i], PDI_pred[i], EE_pred[i], DC_pred[i]])
-    # x2.append([ADI_pred[i], LE_pred[i], MSD_pred[i]])
 x2 = np.array(x2)
 feature = sclaer.transform(x2)
 
@@ -55,4 +54,4 @@ for i in range(len(data)):
 res = pd.DataFrame(res).transpose()
 res.columns = data.columns.tolist() + ['NDI', 'Size', 'PDI', 'EE', 'DC', 'TE']
 print(res)
-res.to_csv('data7/prediction.csv', index=False)
+res.to_csv('data/prediction.csv', index=False)
