@@ -2,9 +2,10 @@
 
 requrements:
 
-python	3.9
-joblib
-numpy
-pandas
-scikit-learn
-xgboost
+* python	3.9
+* joblib
+* RDkit
+* numpy
+* pandas
+* scikit-learn
+* xgboost
