@@ -7,7 +7,7 @@ from sklearn.model_selection import KFold
 from sklearn.metrics import r2_score
 from sklearn.preprocessing import StandardScaler
 
-transfer_data = pd.read_csv('data7/transfer.csv')
+transfer_data = pd.read_csv('data/transfer.csv')
 y = transfer_data['transfer_log2'].values
 y = np.array(y)
 x = transfer_data.iloc[:, 4:9].values
@@ -42,7 +42,6 @@ for train_index, test_index in skf.split(y, x):
     importance[str(k)].append(model.intercept_)
     print(type(model.intercept_))
 
-    # 4. 打印完整的线性回归方程
     equation = f"y = {model.intercept_:.2f}"
     for i, coef in enumerate(model.coef_):
         equation += f" + ({coef:.2f} * x_{i})"
@@ -51,4 +50,4 @@ for train_index, test_index in skf.split(y, x):
 
 print('r2_ave:', sum(r2) / len(r2))
 df = pd.DataFrame(importance)
-df.to_csv('data7/importance_to_transfer.csv', index=False)
+df.to_csv('data/importance_to_transfer.csv', index=False)
