@@ -31,7 +31,7 @@ equation = f"y = {model.intercept_:.2f}"
 for i, coef in enumerate(model.coef_):
     equation += f" + ({coef:.2f} * x_{i})"
 
-print("线性回归方程:", equation)
+print("Equation:", equation)
 
 df = pd.DataFrame({'y_true': y_test, 'y_pred': y_pred})
 df.to_csv('data/transfer_fit_s.csv', index=False)
