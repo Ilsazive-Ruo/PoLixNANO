@@ -19,7 +19,7 @@ if os.path.exists('model/' + experiment_name):
 os.mkdir('model/' + experiment_name)
 
 structure_props = {}
-SP_data = pd.read_csv('data/structures_prop.csv')
+SP_data = pd.read_csv('data/structures_descriptors.csv')
 for Num in SP_data['Num'].values:
     structure_props[Num] = SP_data.iloc[Num, 4:].values.tolist()
 ds = pd.read_csv('data/20241027.csv')
