@@ -11,8 +11,10 @@
 * xgboost
 
 ## Usage
-ML_RNA.py: script to fit models for prediction of physicochemical properties of nanoparticles.
-transfer_fit.py: script to fit equation for prediction of transfection efficiency of nanoparticles.
+* ML_RNA.py: script to fit multitask models for prediction of physicochemical properties of nanoparticles.
+* ML_mRNA_single.py: script to fit single task models for prediction of physicochemical properties of nanoparticles.
+* transfer_fit.py: script to fit equation for prediction of transfection efficiency of nanoparticles.
+* predictor.py: a demo for prediction with personalized data
 
 
 ## License
