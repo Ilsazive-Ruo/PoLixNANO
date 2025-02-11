@@ -24,8 +24,8 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 print(r2_score(y_test, y_pred))
-print("回归方程的截距（intercept）:", model.intercept_)
-print("回归方程的系数（coefficients）:", model.coef_)
+print("intercept:", model.intercept_)
+print("coefficients:", model.coef_)
 
 equation = f"y = {model.intercept_:.2f}"
 for i, coef in enumerate(model.coef_):
