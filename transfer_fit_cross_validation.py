@@ -36,8 +36,8 @@ for train_index, test_index in skf.split(y, x):
     r2.append(r2_score(y_test, model.predict(x_test)))
     print(r2_score(y_test, model.predict(x_test)))
     # print(model.feature_importances_)
-    print("回归方程的截距（intercept）:", model.intercept_)
-    print("回归方程的系数（coefficients）:", model.coef_)
+    print("intercept:", model.intercept_)
+    print("coefficients:", model.coef_)
     importance[str(k)] = list(model.coef_)
     importance[str(k)].append(model.intercept_)
     print(type(model.intercept_))
@@ -46,7 +46,7 @@ for train_index, test_index in skf.split(y, x):
     for i, coef in enumerate(model.coef_):
         equation += f" + ({coef:.2f} * x_{i})"
 
-    print("线性回归方程:", equation)
+    print("Equation:", equation)
 
 print('r2_ave:', sum(r2) / len(r2))
 df = pd.DataFrame(importance)
