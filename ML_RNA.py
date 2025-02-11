@@ -9,10 +9,10 @@ from sklearn.preprocessing import StandardScaler
 
 
 structure_props = {}
-SP_data = pd.read_csv('data/structures_prop.csv')
+SP_data = pd.read_csv('data/structures_descriptors.csv')
 for Num in SP_data['Num'].values:
     structure_props[Num] = SP_data.iloc[Num, 4:].values.tolist()
-ds = pd.read_csv('data/20241027.csv')
+ds = pd.read_csv('data/structure2prop_set.csv')
 
 y = ds.iloc[:, 5].values
 y = np.array(y)
