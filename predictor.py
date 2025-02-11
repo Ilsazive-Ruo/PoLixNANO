@@ -10,7 +10,7 @@ def simple2x(simple):
 
 
 structure_props = {}
-SP_data = pd.read_csv('data/structures_prop.csv')
+SP_data = pd.read_csv('data/structures_descriptors.csv')
 for Num in SP_data['Num'].values:
     structure_props[Num] = SP_data.iloc[Num, 4:].values.tolist()
 
@@ -22,12 +22,12 @@ for i in range(len(data)):
 
 x = np.array(x)
 
-model_size = joblib.load('data/Size_XGB.pkl')
-model_PDI = joblib.load('data/PDI_XGB.pkl')
-model_NDI = joblib.load('data/NDI_MultiRF.pkl')
-model_DC = joblib.load('data/DC_XGB.pkl')
-model_EE = joblib.load('data/EE_MultiXGB.pkl')
-sclaer = joblib.load('data/scaler.joblib')
+model_size = joblib.load('weights/Size_XGB.pkl')
+model_PDI = joblib.load('weights/PDI_XGB.pkl')
+model_NDI = joblib.load('weights/NDI_MultiRF.pkl')
+model_DC = joblib.load('weights/DC_XGB.pkl')
+model_EE = joblib.load('weights/EE_MultiXGB.pkl')
+sclaer = joblib.load('weights/scaler.joblib')
 
 Size_pred = model_size.predict(x)
 PDI_pred = model_PDI.predict(x)
