@@ -19,7 +19,7 @@ if os.path.exists('weight/' + experiment_name):
 os.mkdir('weight/' + experiment_name)
 
 structure_props = {}
-SP_data = pd.read_csv('data/structures_prop.csv')
+SP_data = pd.read_csv('data/structures_descriptors.csv')
 print(SP_data)
 for Num in SP_data['Num'].values:
     structure_props[Num] = SP_data.iloc[Num, 4:].values.tolist()
