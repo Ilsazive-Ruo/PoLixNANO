@@ -1,6 +1,6 @@
 # POLixNANO
 
-requrements:
+## Requrements:
 
 * python	3.9
 * joblib
@@ -9,6 +9,10 @@ requrements:
 * pandas
 * scikit-learn
 * xgboost
+
+## Usage
+ML_RNA.py: script to fit models for prediction of physicochemical properties of nanoparticles.
+transfer_fit.py: script to fit equation for prediction of transfection efficiency of nanoparticles.
 
 
 ## License
