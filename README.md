@@ -120,14 +120,14 @@ Download the installer for your system:
 Windows: choose the .exe for 64-bit (most common)
 macOS/Linux: choose the .pkg or .sh file as appropriate
 
-2. Install Conda
+3. Install Conda
 Run the downloaded installer and follow the prompts:
 Accept the license.
 Choose “Just Me” (default) or “All Users”.
 Allow Conda to add itself to your system PATH (recommended for easy use from the terminal).
 After installation, close and reopen any command line windows so the conda command is recognized.
 
-3. Create and Activate a Project Environment
+4. Create and Activate a Project Environment
 From the start menu, run follwing in conda promte:
 ```bash
 conda create -n PoLixNano python=3.9
