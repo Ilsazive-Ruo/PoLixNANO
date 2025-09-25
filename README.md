@@ -5,7 +5,7 @@
 
 ## Contents
 - [1. Repository Overview](#1-repository-overview)
-- [2. Quick Start (No Programming Required)](#2-quick-start-no-programming-required)
+- [2. Quick Start (No Programming Required)](#2-quick-start)
   - [2.1 Download and Extract](#21-download-and-extract)
   - [2.2 One-Time Installation](#22-one-time-installation)
   - [2.3 One-Click End-to-End Prediction (DemoData)](#23-One-Click-End-to-End-Prediction-(DemoData))
@@ -133,7 +133,7 @@ If they match (or differ only slightly due to rounding), your setup is correct.
 | Stage | Input | Output | Purpose |
 |-------|-------|-------|--------|
 | **Stage 1** | Polymer descriptors + particle properties | TE index | Links particle features to transfection efficiency |
-| **Stage 2** | Polymer descriptors + concentration | Particle properties (Size, PDI, EE, NDIs, Diff) | Predicts particle properties from polymer chemistry |
+| **Stage 2** | Polymer descriptors + concentration | Particle properties (Size, PDI, EE, NDIs, Deff) | Predicts particle properties from polymer descriptors |
 
 The **end-to-end predictor** first uses Stage 2 to compute particle properties, then feeds these into Stage 1 to estimate TE index.  
 This structure **improves interpretability** and reveals how polymer structure determines nanoparticle function.
