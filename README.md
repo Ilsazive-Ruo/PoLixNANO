@@ -1,8 +1,5 @@
 
-# PoLixNano-MSML — Complete User Guide (Non-Programmer Friendly)
-
-> Audience: **Laboratory scientists or engineers without coding experience**  
-> Goal: Reproduce all published results and run **end-to-end predictions** with your own data.
+# PoLixNano-MSML — Complete User Guide
 
 ---
 
