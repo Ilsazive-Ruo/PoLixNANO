@@ -248,19 +248,3 @@ All datasets, pre-trained models, and scripts are included and free to use.
 If you use this repository for research, please cite the corresponding publication.
 
 ---
-
-### Sample Input Template (ready to edit)
-
-A ready-to-edit CSV template is provided below. Save this text as `DemoData.csv` and fill in your own values.
-
-```csv
-Num., polymer_name, m1, c1, m2, c2, Arms, hydrophilicity, Concentration, MW
-1, polymer1, PEG, 60, PPG, 68, 4, 0, 20, 6700,XXXX,XXXX,XXXX,....
-2, polymer2, PEG, 345, PPG, 621, 4, 0, 20, 64722,XXXX,XXXX,XXXX,....
-```
-- Replace `XXXX` with computed or known descriptor values.
-- Keep all columns in the same order.
-
-This template ensures a smooth start for creating your own predictions.
-
----
