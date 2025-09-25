@@ -7,9 +7,10 @@
 - [1. Repository Overview](#1-repository-overview)
 - [2. Quick Start (No Programming Required)](#2-quick-start)
   - [2.1 Download and Extract](#21-download-and-extract)
-  - [2.2 One-Time Installation](#22-one-time-installation)
-  - [2.3 One-Click End-to-End Prediction (DemoData)](#23-One-Click-End-to-End-Prediction-(DemoData))
-  - [2.4 Self-Check](#24-self-check)
+  - [2.2 Installation with pip](#22-Installation-with-pip)
+  - [2.3 Installation with Conda](#23-Installation-with-Conda)
+  - [2.4 One-Click End-to-End Prediction (DemoData)](#24-One-Click-End-to-End-Prediction-(DemoData))
+  - [2.5 Self-Check](#25-self-check)
 - [3. MSML Two-Stage Framework](#3-msml-two-stage-framework)
 - [4. Data Files](#4-data-files)
 - [5. Using Your Own Data](#5-using-your-own-data)
@@ -95,7 +96,7 @@ PoLixNano/
 1. Click **Code → Download ZIP** on GitHub.
 2. Right-click and extract the ZIP to any folder (avoid Chinese characters or spaces in the path).
 
-### 2.2 One-Time Installation
+### 2.2 Installation with pip
 1. Install **Python 3.9** from [python.org](https://www.python.org/downloads/release/python-390/).  
    - During installation, select **“Add Python to PATH”**.
 2. Open a terminal (Windows: Command Prompt/PowerShell, macOS: Terminal).
@@ -109,8 +110,50 @@ After unzipping, a folder named PoLixNano (or similar) should appear in the same
    ```bash
    pip install -r requirements.txt
    ```
+### 2.3 Installing with Conda (Recommended)
+This project is better run inside a Conda environment to keep dependencies isolated.
+1. Download Conda
+You can choose Miniconda (lighter) or Anaconda (includes many scientific packages).
+Miniconda (recommended): https://docs.conda.io/en/latest/miniconda.html
+Anaconda: https://www.anaconda.com/download
+Download the installer for your system:
+Windows: choose the .exe for 64-bit (most common)
+macOS/Linux: choose the .pkg or .sh file as appropriate
 
-### 2.3 One-Click End-to-End Prediction (DemoData)
+2. Install Conda
+Run the downloaded installer and follow the prompts:
+Accept the license.
+Choose “Just Me” (default) or “All Users”.
+Allow Conda to add itself to your system PATH (recommended for easy use from the terminal).
+After installation, close and reopen any command line windows so the conda command is recognized.
+
+3. Create and Activate a Project Environment
+From the start menu, run follwing in conda promte:
+```bash
+conda create -n PoLixNano python=3.9
+conda activate PoLixNano
+```
+Replace PoLixNano with any environment name you prefer.
+
+4. Install Project Dependencies
+If a requirements.txt or environment.yml file is provided, run:
+```bash
+pip install -r requirements.txt
+```
+# Or
+```bash
+conda install --file requirements.txt
+```
+If some packages fail, check your network connection or switch to the other method (Conda or pip).
+
+5. Verify Installation
+Check that Python and Conda are correctly set up:
+```bash
+conda --version
+python --version
+```
+
+### 2.4 One-Click End-to-End Prediction (DemoData)
 ```bash
 python WeightedDesc.py
 ```
@@ -122,7 +165,7 @@ This produces `results/demo/res.csv` with:
 - Predicted **particle properties**: Size, PDI, EE, NDI-Size, NDI-PDI, NDI-EE, Deff  
 - Predicted **TE index**: main score for ranking formulations
 
-### 2.4 Self-Check
+### 2.5 Self-Check
 Compare your `results/demo/res.csv` with `results-check/demo/res.csv`.  
 If they match (or differ only slightly due to rounding), your setup is correct.
 
