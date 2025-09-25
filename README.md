@@ -140,7 +140,7 @@ If a requirements.txt or environment.yml file is provided, run:
 ```bash
 pip install -r requirements.txt
 ```
-# Or
+Or
 ```bash
 conda install --file requirements.txt
 ```
