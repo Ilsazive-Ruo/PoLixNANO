@@ -11,20 +11,16 @@
 - [2. Quick Start (No Programming Required)](#2-quick-start-no-programming-required)
   - [2.1 Download and Extract](#21-download-and-extract)
   - [2.2 One-Time Installation](#22-one-time-installation)
-  - [2.3 One-Click End-to-End Prediction (Example Data)](#23-one-click-end-to-end-prediction-example-data)
+  - [2.3 One-Click End-to-End Prediction (DemoData)](#23-One-Click End-to-End Prediction (DemoData))
   - [2.4 Self-Check](#24-self-check)
 - [3. MSML Two-Stage Framework](#3-msml-two-stage-framework)
 - [4. Data Files](#4-data-files)
 - [5. Using Your Own Data](#5-using-your-own-data)
-  - [5.1 Case A: Modify Formulation of Existing Polymers](#51-case-a-modify-formulation-of-existing-polymers)
-  - [5.2 Case B: New Polymers (Need Molecular Descriptors)](#52-case-b-new-polymers-need-molecular-descriptors)
-  - [5.3 Prepare Your Input CSV](#53-prepare-your-input-csv)
-  - [5.4 Run the Prediction](#54-run-the-prediction)
-- [6. Advanced: Re-training the Models](#6-advanced-re-training-the-models)
-- [7. FAQ](#7-faq)
-- [8. Reproducibility Checklist](#8-reproducibility-checklist)
-- [9. System Requirements](#9-system-requirements)
-- [10. Data & Code Availability and Citation](#10-data--code-availability-and-citation)
+  - [5.1 Case A: Modify Formulation of Existing Monomers](#51-Modify Formulation of Existing Monomers)
+  - [5.2 Case B: Polymers with new monomers](#52-Polymers with new monomers)
+  - [5.3 Run the Prediction](#53-Run the Prediction)
+- [6. Reproducibility](#6-Reproducibility)
+- [7. Data & Code Availability and Citation](#7-data--code-availability-and-citation)
 
 ---
 
@@ -188,9 +184,12 @@ The output (results/demo/res.csv) will include predicted particle properties and
 
 ---
 
-## 6. Advanced: Re-training the Models
+## 6. Reproducibility
 
-To retrain (optional):
+- Pearson correlation coefficient and Spearman coefficient:
+  ```bash
+  python pcc.py
+  ```
 - Stage 2 (particle properties):
   ```bash
   python PPPrediction.py
@@ -203,37 +202,6 @@ All scripts perform in 8:2 training-test splitting of corresponding dataset with
 
 ---
 
-## 7. FAQ
-
-**Q1: Can I run without Python?**  
-No. A minimal Python 3.9 installation is required, but only simple copy–paste commands are needed.
-
-**Q2: Missing columns error?**  
-Ensure column names exactly match those in `data/test_input.csv` and that all descriptor columns contain numeric values.
-
-**Q3: How to interpret TE index?**  
-Higher TE index predicts better overall performance (higher nebulization stability and mucus penetration).
-
----
-
-## 8. Reproducibility Checklist
-
-- [ ] Install dependencies with `pip install -r scripts/requirements.txt`  
-- [ ] Run example input and match the expected output  
-- [ ] Successfully run predictions with custom data  
-- [ ] (Optional) Retrain models and reproduce reported metrics
-
----
-
-## 9. System Requirements
-
-- **Python**: 3.9  
-- **Dependencies**: Listed in `scripts/requirements.txt` (`scikit-learn`, `xgboost`, `pandas`, `numpy`, etc.)  
-- **Hardware**: CPU only is sufficient; no GPU required.  
-- **Network**: Internet required only once for installing dependencies.
-
----
-
 ## 10. Data & Code Availability and Citation
 
 All datasets, pre-trained models, and scripts are included and free to use.  
@@ -243,7 +211,7 @@ If you use this repository for research, please cite the corresponding publicati
 
 ### Sample Input Template (ready to edit)
 
-A ready-to-edit CSV template is provided below. Save this text as `my_input.csv` and fill in your own values.
+A ready-to-edit CSV template is provided below. Save this text as `DemoData.csv` and fill in your own values.
 
 ```csv
 Num., polymer_name, m1, c1, m2, c2, Arms, hydrophilicity, Concentration, MW
