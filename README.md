@@ -5,7 +5,7 @@
 
 ## Contents
 - [1. Repository Overview](#1-repository-overview)
-- [2. Quick Start (No Programming Required)](#2-quick-start)
+- [2. Quick Start](#2-quick-start)
   - [2.1 Download and Extract](#21-download-and-extract)
   - [2.2 Installation with pip](#22-Installation-with-pip)
   - [2.3 Installation with Conda](#23-Installation-with-Conda)
