@@ -89,7 +89,7 @@ PoLixNano/
 
 ---
 
-## 2. Quick Start (No Programming Required)
+## 2. Quick Start
 
 ### 2.1 Download and Extract
 1. Click **Code → Download ZIP** on GitHub.
@@ -199,7 +199,7 @@ All scripts perform in 8:2 training-test splitting of corresponding dataset with
 
 ---
 
-## 10. Data & Code Availability and Citation
+## 7. Data & Code Availability and Citation
 
 All datasets, pre-trained models, and scripts are included and free to use.  
 If you use this repository for research, please cite the corresponding publication.
