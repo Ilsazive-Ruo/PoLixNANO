@@ -203,7 +203,7 @@ All files are ready to use offline.
 ### 5.1 Case A: Modify Formulation of Existing Monomers
 If monomers of your polymer are already included (e.g., EO, PO):
 1. Modify 'm1' (monomer type 1), 'c1' (degree of monomer type 1), 'm2' (monomer type 2) and 'c2' (degree of monomer type 2) in `data/DemoData.csv`.
-2. Modify `concentration' (mM were used, 1, 5, 10, and 20 mM correspond to polymer: mRNA weight ratio (w/w) of 5.9:1, 29.4:1, 58.8:1 and 117.6:1),_'arms' (e.g., 1, 4), 'hydrophilicity' (1: hydrophilic, 0: amphiphilic, -1: hydrophobic).
+2. Modify `concentration' (mM were used, 1, 5, 10, and 20 mg/mL correspond to polymer: mRNA weight ratio (w/w) of 5.9:1, 29.4:1, 58.8:1 and 117.6:1),_'arms' (e.g., 1, 4), 'hydrophilicity' (1: hydrophilic, 0: amphiphilic, -1: hydrophobic).
 3. Keep all `desc_*` descriptor columns unchanged.
 
 ### 5.2 Case B: Polymers with new monomers
